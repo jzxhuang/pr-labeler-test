@@ -1,0 +1,11 @@
+# Adds labels to a PR based on what files have changed
+# See docs: https://github.com/actions/labeler
+
+all:
+  - any: ["a/**/*", "b/**/*", "c/**/*"]
+
+a:
+  - apps/spatial-web-e2e/**/*
+
+b:
+  - SpatialUnity/**/*
