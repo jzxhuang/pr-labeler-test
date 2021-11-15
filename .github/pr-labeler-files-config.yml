@@ -9,15 +9,6 @@ all two:
   - b/**/*
   - c/**/*
 
-all three:
-  - a/**/*
-
-all three:
-  - b/**/*
-
-all three:
-  - c/**/*
-
 a:
   - a/**/*
 
