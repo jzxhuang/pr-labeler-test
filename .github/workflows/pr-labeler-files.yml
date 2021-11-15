@@ -1,0 +1,24 @@
+# This action automatically adds labels to a PR based on which files have changed
+#
+# The file configuration is found in `.github/pr-labeler-files.yml`
+#
+# Uses https://github.com/actions/labeler
+# which is on an MIT license, see https://github.com/actions/labeler/blob/main/LICENSE
+
+name: "PR Labeler Based on File Changes"
+on:
+  - pull_request_target
+
+jobs:
+  pr-labeler-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v3
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: .github/pr-labeler-files-config.yml
+          # The action is overwriting manually set labels.
+          # The workaround is to set `sync-labels: ""`, as demonstrated
+          # in https://github.com/actions/labeler/issues/104 and https://github.com/wesnoth/wesnoth/commit/958c82d0867568057caaf58356502ec8c87d8366.
+          # There is an open PR to fix this, but the repo doesn't seem to be actively maintained: https://github.com/actions/labeler/pull/113
+          sync-labels: ""

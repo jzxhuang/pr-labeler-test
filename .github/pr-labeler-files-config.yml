@@ -1,0 +1,25 @@
+# Adds labels to a PR based on what files have changed
+# See docs: https://github.com/actions/labeler
+
+all:
+  - any: [a/**/*, b/**/*, c/**/*]
+
+all two:
+  - a/**/*
+  - b/**/*
+  - c/**/*
+
+all three:
+  - a/**/*
+
+all three:
+  - b/**/*
+
+all three:
+  - c/**/*
+
+a:
+  - a/**/*
+
+b:
+  - b/**/*
